@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ViewController: UITabBarController  {
+class TabBarController: UITabBarController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
