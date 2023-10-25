@@ -8,372 +8,176 @@
 import UIKit
 import SnapKit
 
-class ExpensesViewController: UIViewController, UITableViewDelegate {
+protocol ExpensiveController: AnyObject {
+    func dataSourceDidUpdated()
 
-    var stillTyping = false
-    var categoriesName = ""
-    var dateValue = ""
+    func updateFinances(_ finances: Finances)
+    func canSpendMoney(_ value: Bool)
+}
 
-    private lazy var categoriesView: CategoriesView = {
-        let view = CategoriesView()
+class ExpensesViewController: UIViewController {
+
+    let presenter: ExpensivePresenter
+
+    private lazy var headerView: HeaderView = {
+        let view = HeaderView()
         view.delegate = self
-
         return view
     }()
 
-    private lazy var financesView: FinancesView = {
-        let view = FinancesView()
-        view.delegate = self
+    let profileInfoCellReuseIdentifier = "profileInfoCellReuseIdentifier"
 
-        return view
+    private lazy var tableView: UITableView = {
+        let cT = UITableView()
+        cT.delegate = self
+        cT.dataSource = self
+        cT.register(CodeTableViewCell.self, forCellReuseIdentifier: profileInfoCellReuseIdentifier)
+        cT.tableFooterView = UIView()
+        cT.backgroundColor = .myBackgroundColor
+        return cT
     }()
 
-    private lazy var labelData: UILabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.font = UIFont.systemFont(ofSize: 50)
-        label.textAlignment = .right
-        label.textColor = .myTextColor
-        label.backgroundColor = .myButtonAndOtherColor
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.layer.cornerRadius = 10
-        label.layer.masksToBounds = true
+    init(presenter: ExpensivePresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
 
-        return label
-    }()
-
-
-    private lazy var buttoneZero: UIButton = {
-        let button = UIButton()
-        button.setTitle("0", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonOne: UIButton = {
-        let button = UIButton()
-        button.setTitle("1", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonTwo: UIButton = {
-        let button = UIButton()
-        button.setTitle("2", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonThree: UIButton = {
-        let button = UIButton()
-        button.setTitle("3", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonFoure: UIButton = {
-        let button = UIButton()
-        button.setTitle("4", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonFive: UIButton = {
-        let button = UIButton()
-        button.setTitle("5", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonSix: UIButton = {
-        let button = UIButton()
-        button.setTitle("6", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonSeven: UIButton = {
-        let button = UIButton()
-        button.setTitle("7", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonEight: UIButton = {
-        let button = UIButton()
-        button.setTitle("8", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonNine: UIButton = {
-        let button = UIButton()
-        button.setTitle("9", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonRecet: UIButton = {
-        let button = UIButton()
-        button.setTitle("C", for: .normal)
-        button.addTarget(self, action: #selector(reset), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var buttonComma: UIButton = {
-        let button = UIButton()
-        button.setTitle(",", for: .normal)
-        button.addTarget(self, action: #selector(pressButton), for: .touchUpInside)
-
-        return button
-    }()
-
-    private lazy var limitButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Set a limit ", for: .normal)
-        button.backgroundColor = .myBackgroundColor
-        button.setTitleColor(.myTextColor, for: .normal)
-
-        return button
-    }()
-
-    private lazy var calculateStack: UIStackView = {
-        let cS =  UIStackView()
-        cS.translatesAutoresizingMaskIntoConstraints = false
-
-        return cS
-    }()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-        [buttonOne,
-         buttonTwo,
-         buttonThree,
-         buttonFoure,
-         buttonFive,
-         buttonSix,
-         buttonSeven,
-         buttonEight,
-         buttonNine,
-         buttonComma,
-         buttonRecet,
-         buttoneZero].forEach{button in
-            button.backgroundColor = .myButtonAndOtherColor
-            button.setTitleColor( .myTextColor, for: .normal)
-            button.layer.cornerRadius = 10
-            button.layer.masksToBounds = true
-            button.titleLabel?.font = .systemFont(ofSize: 23)
-            button.translatesAutoresizingMaskIntoConstraints = false
-        }
-
         view.backgroundColor = .myBackgroundColor
 
         addSubviews()
         constrains()
         configure()
-        configureFinanceLabel()
+
+        presenter.viewDidLoad()
+    }
+}
+
+// MARK: - ExpensiveController
+
+extension ExpensesViewController: ExpensiveController {
+    func dataSourceDidUpdated() {
+        tableView.reloadData()
     }
 
-    func addSubviews() {
-        view.addSubview(labelData)
-        view.addSubview(calculateStack)
-        calculateStack.addSubview(buttonOne)
-        calculateStack.addSubview(buttonTwo)
-        calculateStack.addSubview(buttonThree)
-        calculateStack.addSubview(buttonFoure)
-        calculateStack.addSubview(buttonFive)
-        calculateStack.addSubview(buttonSix)
-        calculateStack.addSubview(buttonSeven)
-        calculateStack.addSubview(buttonEight)
-        calculateStack.addSubview(buttonNine)
-        calculateStack.addSubview(buttoneZero)
-        calculateStack.addSubview(buttonComma)
-        calculateStack.addSubview(buttonRecet)
-        view.addSubview(limitButton)
-        view.addSubview(categoriesView)
-        view.addSubview(financesView)
+    func updateFinances(_ finances: Finances) {
+        headerView.configureFinances(finances)
+    }
 
+    func canSpendMoney(_ value: Bool) {
+        headerView.canSpendMoney(value)
+    }
+}
+
+private extension ExpensesViewController {
+    func addSubviews() {
+        view.addSubview(headerView)
+        view.addSubview(tableView)
     }
 
     func constrains() {
+        headerView.snp.makeConstraints({
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.leading.trailing.equalToSuperview()
+        })
 
-        labelData.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.trailing.leading.equalToSuperview().inset(15)
-            $0.height.equalTo(69)
-        }
-
-        calculateStack.snp.makeConstraints {
-            $0.height.equalTo(215)
-            $0.width.equalTo(156)
-            $0.trailing.equalToSuperview().inset(15)
-            $0.top.equalTo(labelData.snp.bottom).inset(-5)
-        }
-
-        buttonOne.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview()
-        }
-
-        buttonTwo.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalToSuperview()
-            $0.leading.equalTo(buttonOne.snp.trailing).inset(-3)
-        }
-
-        buttonThree.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalToSuperview()
-            $0.leading.equalTo(buttonTwo.snp.trailing).inset(-3)
-        }
-
-        buttonFoure.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonOne.snp.bottom).inset(-5)
-            $0.leading.equalToSuperview()
-        }
-
-        buttonFive.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonTwo.snp.bottom).inset(-5)
-            $0.leading.equalTo(buttonFoure.snp.trailing).inset(-3)
-        }
-
-        buttonSix.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonThree.snp.bottom).inset(-5)
-            $0.leading.equalTo(buttonFive.snp.trailing).inset(-3)
-        }
-
-        buttonSeven.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonFoure.snp.bottom).inset(-5)
-            $0.leading.equalToSuperview()
-        }
-
-        buttonEight.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonFive.snp.bottom).inset(-5)
-            $0.leading.equalTo(buttonSeven.snp.trailing).inset(-3)
-        }
-
-        buttonNine.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonSix.snp.bottom).inset(-5)
-            $0.leading.equalTo(buttonEight.snp.trailing).inset(-3)
-        }
-
-        buttoneZero.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonSeven.snp.bottom).inset(-5)
-            $0.leading.equalToSuperview()
-        }
-
-        buttonComma.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonEight.snp.bottom).inset(-5)
-            $0.leading.equalTo(buttoneZero.snp.trailing).inset(-3)
-        }
-
-        buttonRecet.snp.makeConstraints {
-            $0.height.equalTo(50)
-            $0.width.equalTo(50)
-            $0.top.equalTo(buttonNine.snp.bottom).inset(-5)
-            $0.leading.equalTo(buttonComma.snp.trailing).inset(-3)
-        }
-
-        limitButton.snp.makeConstraints {
-            $0.top.equalTo(calculateStack.snp.bottom).inset(-15)
-            $0.centerX.equalTo(calculateStack.snp.centerX)
-        }
-
-        categoriesView.snp.makeConstraints {
-            $0.trailing.leading.equalToSuperview().inset(15)
-            $0.top.equalTo(limitButton.snp.bottom).offset(15)
-        }
-
-        financesView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(15)
-            $0.top.equalTo(labelData.snp.bottom).offset(5)
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(8.0)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
 
-    private func configure() {
-        let models = [
-            Category(text: "Food", image: UIImage(named: "boldCar")),
-            Category(text: "Clothes", image: UIImage(named: "boldClothes")),
-            Category(text: "Phone", image: UIImage(named: "boldPhone")),
-            Category(text: "Health", image: UIImage(named: "boldHealth")),
-            Category(text: "Car", image: UIImage(named: "boldCar"))
-        ]
-        categoriesView.configure(with: models)
+    func configure() {
+        headerView.configureCategories(presenter.categories)
+    }
+}
+
+extension ExpensesViewController: HeaderViewDelegate {
+    func madeExpense(_ model: DataSourceModel) {
+        presenter.madeExpense(model)
     }
 
-    private func configureFinanceLabel() {
-        let models = [
-            Finance(name:"Monthly limite:", text: "0"),
-            Finance(name: "For spending", text: "0"),
-            Finance(name: "Spent for the period:", text: "0"),
-            Finance(name: "All cost:", text: "0")
-        ]
-        financesView.configureFinance(with: models)
-    }
+    func setlimit() {
+        let alertController = UIAlertController(title: "Estabished limite:".locolizable(), message: "Enter the amount and number of days".locolizable(), preferredStyle: .alert)
+        let alertInstall = UIAlertAction(title: "Establish".locolizable(), style: .default) { action in
+            let tfSum = alertController.textFields?[0].text
+            let tfDay = alertController.textFields?[1].text
 
-    @objc private func pressButton(_ button: UIButton) {
-        let number = button.currentTitle!
-
-        if stillTyping {
-            if labelData.text!.count < 11 {
-                labelData.text = (labelData.text ?? "") + number
+            guard
+                let tfSum = tfSum.flatMap({ Double($0) }),
+                let tfDay = tfDay.flatMap({ Int($0) }) else {
+                return
             }
-        } else {
-            labelData.text = number
-            stillTyping = true
+
+            self.presenter.setStatistic(period: tfDay, limit: tfSum)
         }
+
+        alertController.addTextField { money in
+            money.placeholder = "Summ".locolizable()
+            money.keyboardType = .asciiCapableNumberPad
+
+        }
+        alertController.addTextField { day in
+            day.placeholder = "Number of days".locolizable()
+            day.keyboardType = .asciiCapableNumberPad
+
+        }
+
+        let alertCancel = UIAlertAction(title: "Cancel".locolizable(), style: .cancel) { _ in }
+
+        alertController.addAction(alertInstall)
+        alertController.addAction(alertCancel)
+
+        present(alertController, animated: true, completion: nil)
     }
 
-    @objc private func reset(_ button: UIButton) {
-        labelData.text = "0"
-        stillTyping = false
-    }
-
-}
-
-extension ExpensesViewController: CategoriesViewDelegate {
-    func categoryTapped(_ category: Category) {
-        categoriesName = category.text
-        dateValue = labelData.text ?? ""
-        stillTyping = false
+    func updateValue(_ value: String) {
+        presenter.enteredValue(value)
     }
 }
 
-extension ExpensesViewController: FinancesViewDelegate {
+extension ExpensesViewController:
+    UITableViewDelegate,
+    UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.dataSource.count
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: profileInfoCellReuseIdentifier, for: indexPath) as? CodeTableViewCell else {
+            return UITableViewCell()
+        }
+        let model = presenter.dataSource[indexPath.row]
+        cell.configure(image: model.category.image, category: model.category.text, sum: String(model.sum))
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(
+            style: .destructive,
+            title: "Delete".locolizable()
+        ) { [weak self] _, _, complete in
+            self?.presenter.removeRow(at: indexPath)
+            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            complete(false)
+        }
+
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
 }
-
-

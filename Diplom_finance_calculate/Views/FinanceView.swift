@@ -9,11 +9,11 @@ import UIKit
 
 class FinanceView: UIView {
 
-    var onTapped: ((Finance) -> Void)?
+    var onTapped: ((Statistic) -> Void)?
 
     private lazy var financeName: UILabel = {
         let fN = UILabel()
-        fN.text = finance.name
+        fN.text = statistic.type.name
         fN.textColor = .myTextColor
         fN.font = UIFont.systemFont(ofSize: 20.0)
 
@@ -22,7 +22,8 @@ class FinanceView: UIView {
 
     private lazy var financeLabel: UILabel = {
         let fL = UILabel()
-        fL.text = finance.text
+        // set formatter double as String
+        fL.text = statistic.value.formattedString
         fL.textColor = .myButtonAndOtherColor
         fL.font = UIFont.systemFont(ofSize: 25.0)
 
@@ -37,10 +38,10 @@ class FinanceView: UIView {
         return stack
     }()
 
-    private let finance: Finance
+    private let statistic: Statistic
 
-    init(finance: Finance) {
-        self.finance = finance
+    init(statistic: Statistic) {
+        self.statistic = statistic
         super.init(frame: .zero)
 
         setUp()
@@ -60,10 +61,6 @@ class FinanceView: UIView {
     private func constraints() {
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-        }
-
-        financeLabel.snp.makeConstraints {
-            $0.top.equalTo(financeName.snp.bottom).offset(3)
         }
     }
 }

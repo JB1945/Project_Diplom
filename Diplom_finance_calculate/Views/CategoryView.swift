@@ -11,11 +11,19 @@ class CategoryView: UIView {
 
     var onTapped: ((Category) -> Void)?
 
+    var isEnabled: Bool = true {
+        didSet {
+            tapRecognizer.isEnabled = isEnabled
+            categoryLabel.isEnabled = isEnabled
+            categoryImageView.alpha = isEnabled ? 1.0 : 0.7
+        }
+    }
+
     private lazy var categoryLabel: UILabel = {
         let cL = UILabel()
         cL.text = category.text
         cL.textAlignment = .center
-        cL.textColor = .myButtonAndOtherColor
+        cL.textColor = .myTextColor
         cL.font = UIFont.systemFont(ofSize: 14.0)
 
         return cL
@@ -32,7 +40,6 @@ class CategoryView: UIView {
 
     private lazy var stackView: UIStackView = {
         let stack = UIStackView()
-//        stack.spacing = 3
         stack.axis = .vertical
 
         return stack

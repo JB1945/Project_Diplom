@@ -10,6 +10,8 @@ import SnapKit
 
 class TabBarController: UITabBarController  {
 
+    private let service = FinancesService()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,58 +19,43 @@ class TabBarController: UITabBarController  {
         setTabBarAppiarence()
     }
 
-//do fon to generate tabBar
     private func generateTabBar() {
+        let homePresenter = HomePresenterImp(service: service)
+        let homeViewController = HomeViewController(presenter: homePresenter)
+        homePresenter.view = homeViewController
+
+        let expensesPresenter = ExpensivePresenterImp(service: service)
+        let expensesViewController = ExpensesViewController(presenter: expensesPresenter)
+        expensesPresenter.view = expensesViewController
+
+        let statisticsPresenter = StatisticPresenterImp(service: service)
+        let statisticsViewController = StatisticsViewController(presenter: statisticsPresenter)
+        statisticsPresenter.view = statisticsViewController
+
         viewControllers = [
-            generateVC(viewController: HomeViewController(),
-                       title: "Home",
+            generateVC(viewController: homeViewController,
+                       title: "Home".locolizable(),
                        image: UIImage(systemName: "house.fill")),
-            generateVC(viewController: ExpensesViewController(),
-                       title: "Expenses",
+            generateVC(viewController: expensesViewController,
+                       title: "Expenses".locolizable(),
                        image: UIImage(systemName: "cart.fill.badge.minus")),
-            generateVC(viewController: RevenuesViewController(),
-                       title: "Revenues",
-                       image: UIImage(systemName: "cart.fill.badge.plus")),
-            generateVC(viewController: StatisticsViewController(),
-                       title: "Stats",
+            generateVC(viewController: statisticsViewController,
+                       title: "Stats".locolizable(),
                        image: UIImage(systemName: "chart.line.uptrend.xyaxis.circle.fill"))
         ]
     }
-//do func for generate VC
+
     private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
 
         return viewController
     }
-    //do func for custom tabBar
+
     private func setTabBarAppiarence() {
-        let positionOnX: CGFloat = 10
-        let positionOnY: CGFloat = 14
-        let width = tabBar.bounds.width - positionOnX * 2
-        let hight = tabBar.bounds.height + positionOnY * 2
-
-        let roundLayer = CAShapeLayer()
-
-        let bezierPath = UIBezierPath(
-            roundedRect: CGRect(
-                x: positionOnX,
-                y: tabBar.bounds.minY - positionOnY,
-                width: width,
-                height: hight
-            ),
-            cornerRadius: hight / 2
-        )
-
-        roundLayer.path = bezierPath.cgPath   //?????
-        
-        tabBar.layer.insertSublayer(roundLayer, at: 0)  //?????
-
-        tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
         tabBar.tintColor = .myButtonAndOtherColor
-        tabBar.unselectedItemTintColor = .myOtherColor
+        tabBar.unselectedItemTintColor = .darkGray
+        tabBar.backgroundColor = .myBackgroundColor
     }
-
 }
-

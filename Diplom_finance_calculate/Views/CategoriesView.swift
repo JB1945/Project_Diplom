@@ -23,6 +23,15 @@ class CategoriesView: UIView {
         return stack
     }()
 
+    var isEnabled: Bool = true {
+        didSet {
+            stackView.arrangedSubviews.forEach({
+                guard let category = $0 as? CategoryView else { return }
+                category.isEnabled = isEnabled
+            })
+        }
+    }
+
     init() {
         super.init(frame: .zero)
 

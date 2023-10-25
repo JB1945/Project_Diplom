@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  Diplom_finance_calculate
+
+  Created by Sergei Otoka on 11.10.23.
+  
+*/
+
+"Home" = "Главная";
+"Expenses" = "Расходы";
+"Stats" = "Статистика";
+"Delete" = "Удалить";
+"Set a limit" = "Установить лимит";
+"Estabished limite:" = "Утсановленный лимит:";
+"For spending:" = "На расходы:";
+"Spent for the period:" = "Траты за период:";
+"All cost:" = "Все траты:";
+"Car" = "Машина";
+"Food" = "Еда";
+"Clothes" = "Одежда";
+"Phone" = "Телефон";
+"Health" = "Здоровье";
+"Balance:" = "Баланс:";
+"Galery" = "Галерея";
+"Camera" = "Камера";
+"Cancel" = "Закрыть";
+"For change avatar choose image in gallery or take photo" = "Для изменения аватарки, выбирете изображение из галереи или сделайте фото";
+"Enter the amount and number of days" = "Введите сумму и количество дней";
+"Establish" =  "Установить";
+"Cancel" = "Закрыть";
+"Summ" = "Сумма";
+"Number of days" = "Количество дней";

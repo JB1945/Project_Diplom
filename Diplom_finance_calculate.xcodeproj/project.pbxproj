@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D10CA4252AD69C0B009C31C7 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CA4242AD69C0B009C31C7 /* UserDefaultsManager.swift */; };
+		D10CA4292AD69C86009C31C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D10CA42B2AD69C86009C31C7 /* Localizable.strings */; };
+		D10CA42E2AD69DD2009C31C7 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CA42D2AD69DD2009C31C7 /* NumpadView.swift */; };
+		D10CA4302AD69E71009C31C7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CA42F2AD69E71009C31C7 /* HeaderView.swift */; };
+		D10CA4322AD69E90009C31C7 /* DataSourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CA4312AD69E90009C31C7 /* DataSourceModel.swift */; };
+		D10CA4342AD69EEF009C31C7 /* Extension + Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CA4332AD69EEF009C31C7 /* Extension + Date.swift */; };
+		D10CA4362AD69F00009C31C7 /* Extension + ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CA4352AD69F00009C31C7 /* Extension + ImagePicker.swift */; };
+		D10CA4382AD69F12009C31C7 /* Extension + Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CA4372AD69F12009C31C7 /* Extension + Formatter.swift */; };
+		D10CA45C2AE19071009C31C7 /* Circular.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CA45B2AE19071009C31C7 /* Circular.swift */; };
 		D138C2542AC84D10000C87BA /* CodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138C2532AC84D10000C87BA /* CodeTableViewCell.swift */; };
 		D138C29B2AC87B66000C87BA /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138C29A2AC87B66000C87BA /* CategoryView.swift */; };
 		D138C29D2AC87FEB000C87BA /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138C29C2AC87FEB000C87BA /* CategoriesView.swift */; };
@@ -14,11 +23,8 @@
 		D138C2A22AC89259000C87BA /* FinancesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138C2A12AC89259000C87BA /* FinancesView.swift */; };
 		D138C2A42AC892DB000C87BA /* Finance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138C2A32AC892DB000C87BA /* Finance.swift */; };
 		D138C2A62AC892E9000C87BA /* FinanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D138C2A52AC892E9000C87BA /* FinanceView.swift */; };
-		D142029B2ABCC4C400919641 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D142029A2ABCC4C400919641 /* Realm */; };
-		D142029D2ABCC4C400919641 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D142029C2ABCC4C400919641 /* RealmSwift */; };
 		D175A3572AC353B80041D5D4 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175A3562AC353B80041D5D4 /* HomePresenter.swift */; };
 		D175A35A2AC353E70041D5D4 /* ExpensivePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175A3592AC353E70041D5D4 /* ExpensivePresenter.swift */; };
-		D175A35F2AC354790041D5D4 /* RevenuesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175A35E2AC354790041D5D4 /* RevenuesPresenter.swift */; };
 		D175A3612AC3548A0041D5D4 /* StatisticPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175A3602AC3548A0041D5D4 /* StatisticPresenter.swift */; };
 		D19C2CF22AACD2C2009AF3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C2CF12AACD2C2009AF3EC /* AppDelegate.swift */; };
 		D19C2CF42AACD2C2009AF3EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C2CF32AACD2C2009AF3EC /* SceneDelegate.swift */; };
@@ -29,12 +35,23 @@
 		D19C2D092AACD6CE009AF3EC /* Extension + Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C2D082AACD6CE009AF3EC /* Extension + Localized.swift */; };
 		D19C2D0C2AACD89A009AF3EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D19C2D0B2AACD89A009AF3EC /* SnapKit */; };
 		D1AE5C172AB0E5C900B5AB2C /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AE5C162AB0E5C900B5AB2C /* ExpensesViewController.swift */; };
-		D1AE5C192AB0E5E200B5AB2C /* RevenuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AE5C182AB0E5E200B5AB2C /* RevenuesViewController.swift */; };
 		D1AE5C1B2AB0E5FE00B5AB2C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AE5C1A2AB0E5FE00B5AB2C /* StatisticsViewController.swift */; };
 		D1AE5C1D2AB0F75400B5AB2C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AE5C1C2AB0F75400B5AB2C /* HomeViewController.swift */; };
+		D1C950842AE931D80016F190 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C950832AE931D80016F190 /* Weak.swift */; };
+		D1C950872AE933EF0016F190 /* FinancesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C950862AE933EF0016F190 /* FinancesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D10CA4242AD69C0B009C31C7 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		D10CA42A2AD69C86009C31C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D10CA42C2AD69CCD009C31C7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D10CA42D2AD69DD2009C31C7 /* NumpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadView.swift; sourceTree = "<group>"; };
+		D10CA42F2AD69E71009C31C7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D10CA4312AD69E90009C31C7 /* DataSourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceModel.swift; sourceTree = "<group>"; };
+		D10CA4332AD69EEF009C31C7 /* Extension + Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Date.swift"; sourceTree = "<group>"; };
+		D10CA4352AD69F00009C31C7 /* Extension + ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + ImagePicker.swift"; sourceTree = "<group>"; };
+		D10CA4372AD69F12009C31C7 /* Extension + Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Formatter.swift"; sourceTree = "<group>"; };
+		D10CA45B2AE19071009C31C7 /* Circular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circular.swift; sourceTree = "<group>"; };
 		D138C2532AC84D10000C87BA /* CodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTableViewCell.swift; sourceTree = "<group>"; };
 		D138C29A2AC87B66000C87BA /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		D138C29C2AC87FEB000C87BA /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
@@ -44,7 +61,6 @@
 		D138C2A52AC892E9000C87BA /* FinanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceView.swift; sourceTree = "<group>"; };
 		D175A3562AC353B80041D5D4 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		D175A3592AC353E70041D5D4 /* ExpensivePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensivePresenter.swift; sourceTree = "<group>"; };
-		D175A35E2AC354790041D5D4 /* RevenuesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenuesPresenter.swift; sourceTree = "<group>"; };
 		D175A3602AC3548A0041D5D4 /* StatisticPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticPresenter.swift; sourceTree = "<group>"; };
 		D19C2CEE2AACD2C2009AF3EC /* Diplom_finance_calculate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diplom_finance_calculate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19C2CF12AACD2C2009AF3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,9 +72,10 @@
 		D19C2D062AACD6AE009AF3EC /* Extension + Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Color.swift"; sourceTree = "<group>"; };
 		D19C2D082AACD6CE009AF3EC /* Extension + Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Localized.swift"; sourceTree = "<group>"; };
 		D1AE5C162AB0E5C900B5AB2C /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
-		D1AE5C182AB0E5E200B5AB2C /* RevenuesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenuesViewController.swift; sourceTree = "<group>"; };
 		D1AE5C1A2AB0E5FE00B5AB2C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		D1AE5C1C2AB0F75400B5AB2C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D1C950832AE931D80016F190 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
+		D1C950862AE933EF0016F190 /* FinancesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +83,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D142029D2ABCC4C400919641 /* RealmSwift in Frameworks */,
-				D142029B2ABCC4C400919641 /* Realm in Frameworks */,
 				D19C2D0C2AACD89A009AF3EC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,11 +90,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D10CA4232AD69BF4009C31C7 /* UserDefaultsManager */ = {
+			isa = PBXGroup;
+			children = (
+				D10CA4242AD69C0B009C31C7 /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaultsManager;
+			sourceTree = "<group>";
+		};
+		D10CA4262AD69C5C009C31C7 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				D10CA42B2AD69C86009C31C7 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		D10CA45A2AE1904F009C31C7 /* Circular */ = {
+			isa = PBXGroup;
+			children = (
+				D10CA45B2AE19071009C31C7 /* Circular.swift */,
+			);
+			path = Circular;
+			sourceTree = "<group>";
+		};
 		D138C2A02AC891D7000C87BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D138C29E2AC884E9000C87BA /* Category.swift */,
 				D138C2A32AC892DB000C87BA /* Finance.swift */,
+				D138C29E2AC884E9000C87BA /* Category.swift */,
+				D10CA4312AD69E90009C31C7 /* DataSourceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,15 +140,6 @@
 				D175A3592AC353E70041D5D4 /* ExpensivePresenter.swift */,
 			);
 			path = ExpensiveViewController;
-			sourceTree = "<group>";
-		};
-		D175A35B2AC353F60041D5D4 /* RevenuesViewController */ = {
-			isa = PBXGroup;
-			children = (
-				D1AE5C182AB0E5E200B5AB2C /* RevenuesViewController.swift */,
-				D175A35E2AC354790041D5D4 /* RevenuesPresenter.swift */,
-			);
-			path = RevenuesViewController;
 			sourceTree = "<group>";
 		};
 		D175A35C2AC354090041D5D4 /* StatisticViewController */ = {
@@ -147,6 +178,11 @@
 		D19C2CF02AACD2C2009AF3EC /* Diplom_finance_calculate */ = {
 			isa = PBXGroup;
 			children = (
+				D1C950852AE933D00016F190 /* Service */,
+				D1C950822AE931BE0016F190 /* Helpers */,
+				D10CA45A2AE1904F009C31C7 /* Circular */,
+				D10CA4262AD69C5C009C31C7 /* Localizable */,
+				D10CA4232AD69BF4009C31C7 /* UserDefaultsManager */,
 				D19C2CF12AACD2C2009AF3EC /* AppDelegate.swift */,
 				D19C2CF32AACD2C2009AF3EC /* SceneDelegate.swift */,
 				D19C2D0D2AACE486009AF3EC /* Presentation */,
@@ -165,6 +201,9 @@
 			children = (
 				D19C2D062AACD6AE009AF3EC /* Extension + Color.swift */,
 				D19C2D082AACD6CE009AF3EC /* Extension + Localized.swift */,
+				D10CA4332AD69EEF009C31C7 /* Extension + Date.swift */,
+				D10CA4352AD69F00009C31C7 /* Extension + ImagePicker.swift */,
+				D10CA4372AD69F12009C31C7 /* Extension + Formatter.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -175,20 +214,37 @@
 				D19C2CF52AACD2C2009AF3EC /* TabBarController.swift */,
 				D175A3552AC353740041D5D4 /* HomeViewController */,
 				D175A3582AC353C50041D5D4 /* ExpensiveViewController */,
-				D175A35B2AC353F60041D5D4 /* RevenuesViewController */,
 				D175A35C2AC354090041D5D4 /* StatisticViewController */,
 				D175A35D2AC354560041D5D4 /* CodeTableViewCell */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		D1C950822AE931BE0016F190 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D1C950832AE931D80016F190 /* Weak.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D1C950852AE933D00016F190 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D1C950862AE933EF0016F190 /* FinancesService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		D1F18C182ACC9738008D9484 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D138C29A2AC87B66000C87BA /* CategoryView.swift */,
-				D138C29C2AC87FEB000C87BA /* CategoriesView.swift */,
+				D10CA42D2AD69DD2009C31C7 /* NumpadView.swift */,
 				D138C2A52AC892E9000C87BA /* FinanceView.swift */,
 				D138C2A12AC89259000C87BA /* FinancesView.swift */,
+				D138C29A2AC87B66000C87BA /* CategoryView.swift */,
+				D138C29C2AC87FEB000C87BA /* CategoriesView.swift */,
+				D10CA42F2AD69E71009C31C7 /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,8 +267,6 @@
 			name = Diplom_finance_calculate;
 			packageProductDependencies = (
 				D19C2D0B2AACD89A009AF3EC /* SnapKit */,
-				D142029A2ABCC4C400919641 /* Realm */,
-				D142029C2ABCC4C400919641 /* RealmSwift */,
 			);
 			productName = Diplom_finance_calculate;
 			productReference = D19C2CEE2AACD2C2009AF3EC /* Diplom_finance_calculate.app */;
@@ -226,7 +280,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					D19C2CED2AACD2C2009AF3EC = {
 						CreatedOnToolsVersion = 14.3;
@@ -240,11 +294,11 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = D19C2CE52AACD2C2009AF3EC;
 			packageReferences = (
 				D19C2D0A2AACD89A009AF3EC /* XCRemoteSwiftPackageReference "SnapKit" */,
-				D14202992ABCC4C400919641 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = D19C2CEF2AACD2C2009AF3EC /* Products */;
 			projectDirPath = "";
@@ -261,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D19C2CFE2AACD2C5009AF3EC /* LaunchScreen.storyboard in Resources */,
+				D10CA4292AD69C86009C31C7 /* Localizable.strings in Resources */,
 				D19C2CFB2AACD2C5009AF3EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1C950872AE933EF0016F190 /* FinancesService.swift in Sources */,
+				D10CA4342AD69EEF009C31C7 /* Extension + Date.swift in Sources */,
 				D138C2A22AC89259000C87BA /* FinancesView.swift in Sources */,
 				D138C29D2AC87FEB000C87BA /* CategoriesView.swift in Sources */,
 				D19C2CF62AACD2C2009AF3EC /* TabBarController.swift in Sources */,
@@ -280,17 +337,23 @@
 				D19C2D072AACD6AE009AF3EC /* Extension + Color.swift in Sources */,
 				D175A3572AC353B80041D5D4 /* HomePresenter.swift in Sources */,
 				D175A35A2AC353E70041D5D4 /* ExpensivePresenter.swift in Sources */,
-				D1AE5C192AB0E5E200B5AB2C /* RevenuesViewController.swift in Sources */,
 				D138C29B2AC87B66000C87BA /* CategoryView.swift in Sources */,
 				D138C2542AC84D10000C87BA /* CodeTableViewCell.swift in Sources */,
 				D19C2CF22AACD2C2009AF3EC /* AppDelegate.swift in Sources */,
+				D10CA4362AD69F00009C31C7 /* Extension + ImagePicker.swift in Sources */,
+				D1C950842AE931D80016F190 /* Weak.swift in Sources */,
 				D138C2A42AC892DB000C87BA /* Finance.swift in Sources */,
-				D175A35F2AC354790041D5D4 /* RevenuesPresenter.swift in Sources */,
+				D10CA42E2AD69DD2009C31C7 /* NumpadView.swift in Sources */,
 				D138C29F2AC884E9000C87BA /* Category.swift in Sources */,
 				D1AE5C1D2AB0F75400B5AB2C /* HomeViewController.swift in Sources */,
 				D175A3612AC3548A0041D5D4 /* StatisticPresenter.swift in Sources */,
+				D10CA4252AD69C0B009C31C7 /* UserDefaultsManager.swift in Sources */,
 				D1AE5C1B2AB0E5FE00B5AB2C /* StatisticsViewController.swift in Sources */,
+				D10CA4322AD69E90009C31C7 /* DataSourceModel.swift in Sources */,
 				D19C2CF42AACD2C2009AF3EC /* SceneDelegate.swift in Sources */,
+				D10CA4302AD69E71009C31C7 /* HeaderView.swift in Sources */,
+				D10CA4382AD69F12009C31C7 /* Extension + Formatter.swift in Sources */,
+				D10CA45C2AE19071009C31C7 /* Circular.swift in Sources */,
 				D19C2D092AACD6CE009AF3EC /* Extension + Localized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +361,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D10CA42B2AD69C86009C31C7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D10CA42A2AD69C86009C31C7 /* en */,
+				D10CA42C2AD69CCD009C31C7 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D19C2CFC2AACD2C5009AF3EC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -313,6 +385,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -345,6 +418,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -373,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -405,6 +480,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -433,6 +509,8 @@
 				DEVELOPMENT_TEAM = S25457U2GZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Diplom_finance_calculate/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = " Use Camera for avatar";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Use Galery for avatar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -461,6 +539,8 @@
 				DEVELOPMENT_TEAM = S25457U2GZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Diplom_finance_calculate/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = " Use Camera for avatar";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Use Galery for avatar";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -503,14 +583,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D14202992ABCC4C400919641 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		D19C2D0A2AACD89A009AF3EC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -522,16 +594,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D142029A2ABCC4C400919641 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D14202992ABCC4C400919641 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		D142029C2ABCC4C400919641 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D14202992ABCC4C400919641 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
 		D19C2D0B2AACD89A009AF3EC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D19C2D0A2AACD89A009AF3EC /* XCRemoteSwiftPackageReference "SnapKit" */;

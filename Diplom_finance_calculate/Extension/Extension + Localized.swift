@@ -8,7 +8,12 @@
 import UIKit
 
 extension String {
-    func locolizable(_ key: String) -> String {
-        NSLocalizedString(key, comment: "")
+    func locolizable() -> String {
+        NSLocalizedString(
+            self,
+            tableName: "Localizable",
+            bundle: .main,
+            value: self,
+            comment: self)
     }
 }
