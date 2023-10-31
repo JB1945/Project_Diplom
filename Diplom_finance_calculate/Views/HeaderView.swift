@@ -73,7 +73,7 @@ class HeaderView: UIView {
 
     private lazy var limitButton: UIButton = {
         let button = UIButton(
-            primaryAction: UIAction(title: "Set a limit".locolizable(), handler: { [weak self] _ in
+            primaryAction: UIAction(title: "Set a limit".localizable(), handler: { [weak self] _ in
                 self?.delegate?.setlimit()
                 self?.currentValue = Constant.zero
             })

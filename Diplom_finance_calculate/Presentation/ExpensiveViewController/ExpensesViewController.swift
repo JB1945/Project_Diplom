@@ -104,8 +104,8 @@ extension ExpensesViewController: HeaderViewDelegate {
     }
 
     func setlimit() {
-        let alertController = UIAlertController(title: "Estabished limite:".locolizable(), message: "Enter the amount and number of days".locolizable(), preferredStyle: .alert)
-        let alertInstall = UIAlertAction(title: "Establish".locolizable(), style: .default) { action in
+        let alertController = UIAlertController(title: "Estabished limite:".localizable(), message: "Enter the amount and number of days".localizable(), preferredStyle: .alert)
+        let alertInstall = UIAlertAction(title: "Establish".localizable(), style: .default) { action in
             let tfSum = alertController.textFields?[0].text
             let tfDay = alertController.textFields?[1].text
 
@@ -119,17 +119,17 @@ extension ExpensesViewController: HeaderViewDelegate {
         }
 
         alertController.addTextField { money in
-            money.placeholder = "Summ".locolizable()
+            money.placeholder = "Summ".localizable()
             money.keyboardType = .asciiCapableNumberPad
 
         }
         alertController.addTextField { day in
-            day.placeholder = "Number of days".locolizable()
+            day.placeholder = "Number of days".localizable()
             day.keyboardType = .asciiCapableNumberPad
 
         }
 
-        let alertCancel = UIAlertAction(title: "Cancel".locolizable(), style: .cancel) { _ in }
+        let alertCancel = UIAlertAction(title: "Cancel".localizable(), style: .cancel) { _ in }
 
         alertController.addAction(alertInstall)
         alertController.addAction(alertCancel)
@@ -169,7 +169,7 @@ extension ExpensesViewController:
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(
             style: .destructive,
-            title: "Delete".locolizable()
+            title: "Delete".localizable()
         ) { [weak self] _, _, complete in
             self?.presenter.removeRow(at: indexPath)
             self?.tableView.deleteRows(at: [indexPath], with: .automatic)

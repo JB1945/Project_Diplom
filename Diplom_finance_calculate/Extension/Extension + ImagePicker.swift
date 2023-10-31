@@ -13,7 +13,7 @@ class ImagePicker: UIViewController {
 
     private lazy var descLabel: UILabel = {
         let dl = UILabel()
-        dl.text = "For change avatar choose image in gallery or take photo".locolizable()
+        dl.text = "For change avatar choose image in gallery or take photo".localizable()
         dl.textColor = .myTextColor
         dl.translatesAutoresizingMaskIntoConstraints = false
         dl.numberOfLines = 0
@@ -25,7 +25,7 @@ class ImagePicker: UIViewController {
         let og = UIButton()
         og.backgroundColor = .myButtonAndOtherColor
         og.tintColor = .myTextColor
-        og.setTitle("Galery".locolizable(), for: .normal)
+        og.setTitle("Galery".localizable(), for: .normal)
         og.translatesAutoresizingMaskIntoConstraints = false
         og.layer.cornerRadius = 10
         og.addTarget(self, action:  #selector(gallery), for: .touchUpInside)
@@ -37,7 +37,7 @@ class ImagePicker: UIViewController {
         let oc = UIButton()
         oc.backgroundColor = .myButtonAndOtherColor
         oc.tintColor = .myTextColor
-        oc.setTitle("Camera".locolizable(), for: .normal)
+        oc.setTitle("Camera".localizable(), for: .normal)
         oc.translatesAutoresizingMaskIntoConstraints = false
         oc.layer.cornerRadius = 10
         oc.addTarget(self, action: #selector(camera), for: .touchUpInside)
@@ -49,7 +49,7 @@ class ImagePicker: UIViewController {
         let cancel = UIButton()
         cancel.backgroundColor = .systemRed
         cancel.tintColor = .myTextColor
-        cancel.setTitle("Cancel".locolizable(), for: .normal)
+        cancel.setTitle("Cancel".localizable(), for: .normal)
         cancel.translatesAutoresizingMaskIntoConstraints = false
         cancel.layer.cornerRadius = 10
         cancel.addTarget(self, action: #selector(cancelPicker), for: .touchUpInside)

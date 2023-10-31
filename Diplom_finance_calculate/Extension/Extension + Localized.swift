@@ -8,7 +8,7 @@
 import UIKit
 
 extension String {
-    func locolizable() -> String {
+    func localizable() -> String {
         NSLocalizedString(
             self,
             tableName: "Localizable",

@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
 
     private lazy var balance: UILabel = {
         let label = UILabel()
-        label.text = "For spending:".locolizable()
+        label.text = "For spending:".localizable()
         label.textColor = .myTextColor
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
 
@@ -108,7 +108,7 @@ extension HomeViewController: HomeController {
     }
 
     func forSpendingUpdated(_ value: String) {
-        balance.text = "For spending:".locolizable() + " \(value)"
+        balance.text = "For spending:".localizable() + " \(value)"
     }
 }
 

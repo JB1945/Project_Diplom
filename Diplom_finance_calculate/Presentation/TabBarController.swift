@@ -34,13 +34,13 @@ class TabBarController: UITabBarController  {
 
         viewControllers = [
             generateVC(viewController: homeViewController,
-                       title: "Home".locolizable(),
+                       title: "Home".localizable(),
                        image: UIImage(systemName: "house.fill")),
             generateVC(viewController: expensesViewController,
-                       title: "Expenses".locolizable(),
+                       title: "Expenses".localizable(),
                        image: UIImage(systemName: "cart.fill.badge.minus")),
             generateVC(viewController: statisticsViewController,
-                       title: "Stats".locolizable(),
+                       title: "Stats".localizable(),
                        image: UIImage(systemName: "chart.line.uptrend.xyaxis.circle.fill"))
         ]
     }

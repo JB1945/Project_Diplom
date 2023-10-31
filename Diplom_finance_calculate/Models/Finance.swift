@@ -40,13 +40,13 @@ extension Statistic.StatisticType {
     var name: String {
         switch self {
         case .monthly:
-            return "Estabished limite:".locolizable()
+            return "Estabished limite:".localizable()
         case .forSpending:
-            return "For spending:".locolizable()
+            return "For spending:".localizable()
         case .spentInPeriod:
-            return "Spent for the period:".locolizable()
+            return "Spent for the period:".localizable()
         case .allCost:
-            return "All cost:".locolizable()
+            return "All cost:".localizable()
         }
     }
 }

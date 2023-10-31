@@ -13,15 +13,15 @@ enum Category: CaseIterable, Codable {
     var text: String {
         switch self {
         case .car:
-            return "Car".locolizable()
+            return "Car".localizable()
         case .food:
-            return "Food".locolizable()
+            return "Food".localizable()
         case .clothes:
-            return "Clothes".locolizable()
+            return "Clothes".localizable()
         case .phone:
-            return "Phone".locolizable()
+            return "Phone".localizable()
         case .health:
-            return "Health".locolizable()
+            return "Health".localizable()
         }
     }
 
